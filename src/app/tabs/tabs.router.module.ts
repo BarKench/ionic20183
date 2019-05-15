@@ -35,6 +35,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'addCliente',
+        children: [
+          {
+            path: '',
+            loadChildren: '../cliente/add-cliente/add-cliente.module#AddClientePageModule'
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

@@ -14,4 +14,10 @@
     </ion-fab-button>
   </ion-fab>
 
+  <ion-list *ngIf="clientes$ | async as clientes">
+    <ion-item *ngFor="let cliente of clientes">
+      <ion-label side="start">{{cliente.nome}}</ion-label>
+    </ion-item>
+  </ion-list>
+
 </ion-content>

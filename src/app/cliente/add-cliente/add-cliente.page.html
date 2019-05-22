@@ -29,7 +29,7 @@
     <ion-label position="floating">Confirma Senha</ion-label>
     <ion-input type="password" name="conf" [(ngModel)]="conf" #c="ngModel"  minlenght="6" required></ion-input> 
   </ion-item>
-  <ion-text color="danger" *ngIf="pws.value != c.value"> 
+  <ion-text color="danger" *ngIf="pws.value != c.value" > 
     <strong>Senhas diferentes!</strong>
   </ion-text>
 
@@ -37,7 +37,7 @@
 
 
   <ion-item lines="none" padding>
-    <ion-button type= "submit" color="primary" [disabled]="fc.invalid">Salvar</ion-button>
+    <ion-button type= "submit" color="primary" [disabled]="fc.invalid || pws.value != c.value">Salvar</ion-button>
     <ion-button type= "reset" [routerLink] = "(['/tabs/tab2'])" color="primary" >Cancelar</ion-button>
   </ion-item>
 </form>

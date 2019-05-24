@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   selector: 'app-list-cliente',
   templateUrl: './list-cliente.page.html',
   styleUrls: ['./list-cliente.page.scss'],
+
 })
 export class ListClientePage implements OnInit {
 
@@ -19,4 +20,13 @@ export class ListClientePage implements OnInit {
     this.clientes$ = this.clienteService.getAll();
   }
 
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
+
+}
 }

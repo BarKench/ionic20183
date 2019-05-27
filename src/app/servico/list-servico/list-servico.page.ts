@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ServicoService } from '../servico.service'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-list-servico',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListServicoPage implements OnInit {
 
-  constructor() { }
+  private servicos$: Observable<any[]>;
+  
+  constructor(
+    private servicoService: ServicoService
+  ) { }
 
   ngOnInit() {
+    this.servicos$ = this.servicoService.getAll();
+  }
+  doRefresh(event) {
+    console.log('Begin async operation');
+    
+    this.servicos$ = this.servicoService.getAll();   
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
   }
 
 }

@@ -7,23 +7,29 @@
   <ion-content padding>
   <form #fc="ngForm" (ngSubmit)="onSubmit(fc)">
     <ion-item>
-      <ion-label position="floating">Nome</ion-label>
-      <ion-input type="text" name="nome" [(ngModel)]="servico.nome" #nome="ngModel" required></ion-input>
-    </ion-item>
-  
-    <ion-item>
       <ion-label position="floating">Descrição</ion-label>
       <ion-input type="text" name="desc" [(ngModel)]="servico.desc" #desc="ngModel" required></ion-input>
     </ion-item>
 
     <ion-item>
         <ion-label position="floating">Tipo de Serviço</ion-label>
-        <ion-input type="text" name="tipo" [(ngModel)]="servico.tipo" #tipo="ngModel" required></ion-input>
+        <ion-input type="text" name="tipo" [(ngModel)]="servico.tipo" #tipo="ngModel" required>
+          <ion-select placeholder="Selecione o tipo do Serviço">
+            <ion-select-option value="Manutenção">Manutenção</ion-select-option>
+            <ion-select-option value="Internet">Internet</ion-select-option>
+          </ion-select>
+        </ion-input>
       </ion-item>
 
       <ion-item>
           <ion-label position="floating">Status do Serviço</ion-label>
-          <ion-input type="text" name="status" [(ngModel)]="servico.status" #status="ngModel" required></ion-input>
+          <ion-input type="text" name="status" [(ngModel)]="servico.status" #status="ngModel" required>
+            <ion-select placeholder="Selecione o Status do Serviço">
+              <ion-select-option value="Status: Aberto">Aberto</ion-select-option>
+              <ion-select-option value="Status: Fechado">Fechado</ion-select-option>
+            </ion-select>
+
+          </ion-input>
         </ion-item>
 
     <ion-item>

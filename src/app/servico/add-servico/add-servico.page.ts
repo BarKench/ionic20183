@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Servico } from '../servico';
 import { AlertController } from '@ionic/angular';
 import {Router} from '@angular/router'
+
+import { Servico } from '../servico';
 import { ServicoService } from '../servico.service'
+
 
 
 @Component({
@@ -11,9 +13,12 @@ import { ServicoService } from '../servico.service'
   styleUrls: ['./add-servico.page.scss'],
 })
 export class AddServicoPage implements OnInit {
+
   private servico: Servico;
 
-  constructor(private servicoService: ServicoService, public alertController: AlertController, private router: Router ) { }
+  constructor(private servicoService: ServicoService, 
+    public alertController: AlertController, 
+    private router: Router ) { }
 
   ngOnInit() {
     this.servico = new Servico;
@@ -21,7 +26,7 @@ export class AddServicoPage implements OnInit {
   onSubmit(form) {
     this.servicoService.save(this.servico).then(
       res => {
-        this.presentAlert("Aviso",this.servico.nome +", você se cadastrou com sucesso!");
+        this.presentAlert("Aviso"," servico cadastrado com sucesso!");
         form.reset();
         this.servico = new Servico;
         this.router.navigate(['/tabs/tab3'])

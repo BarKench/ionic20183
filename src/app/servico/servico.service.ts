@@ -5,7 +5,7 @@ import { Servico } from './servico';
 @Injectable({
   providedIn: 'root'
 })
-export class ClienteService {
+export class ServicoService {
 
   constructor (private db: AngularFireDatabase) { }
 

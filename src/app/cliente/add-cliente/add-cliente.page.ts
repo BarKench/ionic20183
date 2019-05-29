@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 import { Cliente } from '../cliente';
@@ -18,11 +18,18 @@ export class AddClientePage implements OnInit {
   constructor(
     private clienteService: ClienteService,
     public alertController: AlertController,
-    private router:Router
-  ) { }
+    private router:Router,
+    private activeRouter: ActivatedRoute
+  ) {
+   
+   }
 
   ngOnInit() {
     this.cliente = new Cliente;
+    this.cliente.id = this.activeRouter.snapshot.paramMap.get("id");
+    if(this.cliente.id != null){
+      this.edit(this.cliente.id);
+    }
   }
 
   onSubmit(form) {

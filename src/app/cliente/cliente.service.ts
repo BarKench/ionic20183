@@ -3,13 +3,15 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { map } from 'rxjs/operators';
 
 import { Cliente } from './cliente';
+import { AlertController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClienteService {
 
-  constructor(private db: AngularFireDatabase) { }
+  constructor(private db: AngularFireDatabase) { 
+  }
 
   getAll() {
     return this.db.list('clientes').snapshotChanges()
@@ -29,28 +31,14 @@ export class ClienteService {
       //   }
       // );
   }
+  remover(key){
+   return this.db.list("clientes").remove(key);
+  }
 
-
-
-
-
-
-
-
-
-
-
-  // //Local
-  // gerarKey() {
-  //   for (let i = 0; i < localStorage.length; i++) {
-  //     let key = localStorage.key(i);
-  //     let value = localStorage.getItem(key);
-  //     console.log(key, value);
-  //   }
-  //   return localStorage.length + 1;
-  // }
-  // save(cliente: Cliente) {
-
-  //   localStorage.setItem(this.gerarKey().toString(),JSON.stringify(cliente));
-  // }
+  update(key, cliente:Cliente){
+    return this.db.list("clientes").update(key, cliente);
+  }
+  get(key){
+    return this.db.list<Cliente>("clientes/"+key).valueChanges();
+  }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
+
 import { Cliente } from '../cliente';
 import { ClienteService } from '../cliente.service';
 
@@ -40,6 +41,16 @@ export class AddClientePage implements OnInit {
       );
   }
 
+  edit(key){
+    this.clienteService.get(key)
+    .subscribe(
+      res=>{
+        this.cliente = res[0];
+        this.cliente = key;
+      }
+    )
+  }
+
   //Alertas ----------------------------------------------
   async presentAlert(titulo: string, texto: string) {
     const alert = await this.alertController.create({
@@ -51,5 +62,5 @@ export class AddClientePage implements OnInit {
 
     await alert.present();
   }
-
+  
 }

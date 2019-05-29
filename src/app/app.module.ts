@@ -3,15 +3,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
-import {AngularFireDatabaseModule } from '@angular/fire/database';
-import {AngularFireModule} from '@angular/fire';
 
+//Ionic
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
+//Component
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+//Firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,4 +28,4 @@ import { AppComponent } from './app.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

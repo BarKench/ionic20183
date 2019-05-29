@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServicoService } from '../servico.service'
+import { ServicoService } from '../servico.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -10,14 +10,15 @@ import { Observable } from 'rxjs';
 export class ListServicoPage implements OnInit {
 
   private servicos$: Observable<any[]>;
-  
+
   constructor(
-    private servicoService: ServicoService
+    private servicoService: ServicoService,
   ) { }
 
   ngOnInit() {
     this.servicos$ = this.servicoService.getAll();
   }
+
   doRefresh(event) {
     console.log('Begin async operation');
     
@@ -28,5 +29,4 @@ export class ListServicoPage implements OnInit {
       event.target.complete();
     }, 2000);
   }
-
 }

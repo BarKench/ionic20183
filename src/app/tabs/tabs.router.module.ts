@@ -21,7 +21,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren:  '../cliente/list-cliente/list-cliente.module#ListClientePageModule'
+            loadChildren: '../cliente/list-cliente/list-cliente.module#ListClientePageModule'
           }
         ]
       },
@@ -35,26 +35,23 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'addCliente',
-        children: [
-          {
-            path: '',
-            loadChildren: '../cliente/add-cliente/add-cliente.module#AddClientePageModule'
-          }
-          
-        ]
-      },
-      {
         path: 'addServico',
         children: [
           {
             path: '',
             loadChildren: '../servico/add-servico/add-servico.module#AddServicoPageModule'
           }
-          
         ]
       },
-      
+      {
+        path: 'addCliente',
+        children: [
+          {
+            path: '',
+            loadChildren: '../cliente/add-cliente/add-cliente.module#AddClientePageModule'
+          }
+        ]
+      },
       {
         path: '',
         redirectTo: '/tabs/tab1',

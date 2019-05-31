@@ -62,6 +62,16 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'addServico/:id',
+        children: [
+          {
+            path: '',
+            loadChildren: '../servico/add-servico/add-servico.module#AddServicoPageModule'
+          }
+        ]
+      },
+      { path: 'login', loadChildren: './cliente/login/login.module#LoginPageModule' },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

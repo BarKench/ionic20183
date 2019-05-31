@@ -53,7 +53,7 @@ export class ListClientePage implements OnInit {
         }, {
           text: 'Sim',
           handler: () => {
-            this.clienteService.remover(key);
+            this.clienteService.remove(key);
           }
         }
       ]
